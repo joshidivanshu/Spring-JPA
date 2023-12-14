@@ -32,6 +32,19 @@
   <!-- Submit button -->
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<br>
+<h2 class="text-center"> Get User </h2>
+<form action="/getUser" method="get" th:object="${user}" class="container">
+  <!-- Input field for ID -->
+  <div class="form-group">
+    <label for="id">User ID:</label>
+    <input type="text" id="id" name="userId" class="form-control" required>
+  </div>
+
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
 
 <!-- Add Bootstrap JS and Popper.js (required for some Bootstrap components) -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
