@@ -3,13 +3,11 @@ package com.springboot.JPA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Controller for managing user-related operations and views
@@ -59,6 +57,13 @@ public class UserController {
         userIterable.forEach(users::add);
         model.addAttribute("users", users);
         return "userList";
+    }
+
+    @GetMapping("/getUser")
+    public String getUser(@RequestParam String userId, Model model) {
+        Optional<User> user = repo.findById(Integer.parseInt(userId));
+        model.addAttribute("user", user.orElse(null));
+        return "showUser";
     }
 
 
