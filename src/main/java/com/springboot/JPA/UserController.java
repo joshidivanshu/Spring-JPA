@@ -66,6 +66,25 @@ public class UserController {
         return "showUser";
     }
 
+    @PostMapping("/deleteUser")
+    public String deleteUser(@RequestParam int userId) {
+        User user = repo.findById(userId).orElse(null);
+        if(user != null)
+            repo.delete(user);
+        return "redirect:/";
+    }
+
+    @PostMapping("/updateUser")
+    public String updateUser(@RequestParam int userId, @RequestParam String userName) {
+        User user = repo.findById(userId).orElse(null);
+        if(user != null) {
+            user.setName(userName);
+            repo.save(user);
+        }
+
+        return "redirect:/";
+    }
+
 
 
 

@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<h2 class="text-center">User Form</h2>
+<h2 class="text-center">Create User</h2>
 
 <form action="/processUser" method="post" th:object="${user}" class="container">
   <!-- Input field for ID -->
@@ -44,7 +44,33 @@
   <!-- Submit button -->
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<br>
+<h2 class="text-center">Delete User</h2>
+<form action="/deleteUser" method="post" th:object="${user}" class="container">
+  <!-- Input field for ID -->
+  <div class="form-group">
+    <label for="id">User ID:</label>
+    <input type="text" id="id" name="userId" class="form-control" required>
+  </div>
 
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-danger">Submit</button>
+</form>
+
+<br>
+<h2 class="text-center">Update UserName</h2>
+<form action="/updateUser" method="post" th:object="${user}" class="container">
+  <!-- Input field for ID -->
+  <div class="form-group">
+    <label for="id">User ID:</label>
+    <input type="text" id="id" name="userId" class="form-control" required>
+    <label for="userName">User Name:</label>
+    <input type="text" id="userName" name="userName" class="form-control" required>
+  </div>
+
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-danger">Submit</button>
+</form>
 
 <!-- Add Bootstrap JS and Popper.js (required for some Bootstrap components) -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
