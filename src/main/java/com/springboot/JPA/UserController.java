@@ -98,6 +98,7 @@ public class UserController {
         User user = repo.findByName(userName);
         if(user != null) {
             System.out.println(user);
+            System.out.println(repo.findByIdGreaterThan(1));
             model.addAttribute("user", user);
             return "showUser";
         }
