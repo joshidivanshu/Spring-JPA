@@ -72,6 +72,38 @@
   <button type="submit" class="btn btn-danger">Submit</button>
 </form>
 
+<br>
+<h2 class="text-center">Find User By Tech</h2>
+<form action="/findByTech" method="get" th:object="${user}" class="container">
+  <!-- Input field for ID -->
+  <div class="form-group">
+    <label for="tech">Tech:</label>
+    <input type="text" id="tech" name="tech" class="form-control" required>
+  </div>
+
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-danger">Submit</button>
+</form>
+
+<br>
+<h2 class="text-center">Find User by UserName</h2>
+<form action="/findByName" method="get" th:object="${user}" class="container">
+  <!-- Input field for ID -->
+  <div class="form-group">
+    <label for="userName">User Name : </label>
+    <input type="text" id="userName" name="userName" class="form-control" required>
+  </div>
+
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-danger">Submit</button>
+</form>
+
+<footer class="footer mt-auto py-3 bg-light">
+  <div class="container">
+    <span class="text-muted">Test Spring JPA Project</span>
+  </div>
+</footer>
+
 <!-- Add Bootstrap JS and Popper.js (required for some Bootstrap components) -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

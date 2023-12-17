@@ -85,7 +85,25 @@ public class UserController {
         return "redirect:/";
     }
 
+    @GetMapping("findByTech")
+    public String findUserByTech(@RequestParam String tech, Model model) {
+        List<User> users = repo.findByTech(tech);
+        System.out.println(users);
+        model.addAttribute("users", users);
+        return "userList";
+    }
 
+    @GetMapping("findByName")
+    public String findUserByName(@RequestParam String userName, Model model) {
+        User user = repo.findByName(userName);
+        if(user != null) {
+            System.out.println(user);
+            model.addAttribute("user", user);
+            return "showUser";
+        }
+        return "redirect:/";
+
+    }
 
 
 }
