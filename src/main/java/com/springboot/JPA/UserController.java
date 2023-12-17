@@ -107,5 +107,11 @@ public class UserController {
 
     }
 
+    @RequestMapping("/users")
+    @ResponseBody
+    public String getAllUsers() {
+        return repo.findAll().toString();
+    }
+
 
 }
