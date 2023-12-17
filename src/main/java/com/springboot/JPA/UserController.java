@@ -99,6 +99,7 @@ public class UserController {
         if(user != null) {
             System.out.println(user);
             System.out.println(repo.findByIdGreaterThan(1));
+            System.out.println(repo.findByTechSorted("java"));
             model.addAttribute("user", user);
             return "showUser";
         }
