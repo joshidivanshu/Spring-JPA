@@ -109,17 +109,18 @@ public class UserController {
 
     @RequestMapping("/users")
     @ResponseBody
-    public String getAllUsers() {
-        return repo.findAll().toString();
+    public List<User> getAllUsers() {
+        return repo.findAll();
     }
 
     @RequestMapping("/user/{userId}")
     @ResponseBody
-    public  String getUser(@PathVariable int userId) {
-        User user = repo.findById(userId).orElse(null);
-        if(user != null)
-            return user.toString();
-        return "No user found with the provided Id";
+    public  Optional<User> getUser(@PathVariable int userId) {
+//        User user = repo.findById(userId).orElse(null);
+//        if(user != null)
+//            return user.toString();
+//        return "No user found with the provided Id";
+        return repo.findById(userId);
     }
 
 
