@@ -95,7 +95,7 @@ public class UserController {
 
     @GetMapping("findByName")
     public String findUserByName(@RequestParam String userName, Model model) {
-        User user = repo.findByName(userName);
+        User user = repo.findByName(userName).orElse(null);
         if(user != null) {
             System.out.println(user);
             System.out.println(repo.findByIdGreaterThan(1));
@@ -119,4 +119,9 @@ public class UserController {
         return repo.findById(userId);
     }
 
+//    @RequestMapping(path="/user/{userName}", produces = {"application/xml"})
+//    @ResponseBody
+//    public Optional<User> getUser(@PathVariable String userName) {
+//        return repo.findByName(userName);
+//    }
 }
