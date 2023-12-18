@@ -119,9 +119,9 @@ public class UserController {
         return repo.findById(userId);
     }
 
-//    @RequestMapping(path="/user/{userName}", produces = {"application/xml"})
-//    @ResponseBody
-//    public Optional<User> getUser(@PathVariable String userName) {
-//        return repo.findByName(userName);
-//    }
+    @RequestMapping(path="/user/name/{userName}", produces = {"application/xml"})
+    @ResponseBody
+    public Optional<User> getUser(@PathVariable String userName) {
+        return repo.findByName(userName);
+    }
 }
