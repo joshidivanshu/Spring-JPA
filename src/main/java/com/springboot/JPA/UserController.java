@@ -139,6 +139,13 @@ public class UserController {
         return new ResponseEntity<>("User Created Successfully!!", HttpStatus.CREATED);
     }
 
+    /**
+     * Example curl request
+     * curl -X DELETE http://localhost:8080/deleteUser/1
+     * @param userId
+     * @return
+     */
+
     @DeleteMapping("/deleteUser/{userId}")
     public ResponseEntity<String> deleteUserRest(@PathVariable int userId) {
         User user = repo.findById(userId).orElse(null);
