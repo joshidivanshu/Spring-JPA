@@ -139,5 +139,18 @@ public class UserController {
         return new ResponseEntity<>("User Created Successfully!!", HttpStatus.CREATED);
     }
 
+    @DeleteMapping("/deleteUser/{userId}")
+    public ResponseEntity<String> deleteUserRest(@PathVariable int userId) {
+        User user = repo.findById(userId).orElse(null);
+        if(user != null) {
+            repo.delete(user);
+            return new ResponseEntity<>("User Deleted Successfully!!", HttpStatus.OK);
+        }
+        else {
+            return new ResponseEntity<>("No Such user exists", HttpStatus.BAD_REQUEST);
+        }
+
+    }
+
 
 }
