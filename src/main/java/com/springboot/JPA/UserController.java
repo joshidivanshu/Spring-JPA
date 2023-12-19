@@ -1,6 +1,8 @@
 package com.springboot.JPA;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -124,4 +126,18 @@ public class UserController {
     public Optional<User> getUser(@PathVariable String userName) {
         return repo.findByName(userName);
     }
+
+    /**
+     * Example Curl Request
+     * curl -X POST -H "Content-Type: application/json" -d '{"id":"1","name":"john", "tech":"python"}' http://localhost:8080/createUser
+     * @param user
+     * @return
+     */
+    @PostMapping("/createUser")
+    public ResponseEntity<String> createUserRest(@RequestBody User user) {
+        repo.save(user);
+        return new ResponseEntity<>("User Created Successfully!!", HttpStatus.CREATED);
+    }
+
+
 }
